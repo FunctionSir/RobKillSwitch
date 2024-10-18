@@ -1,2 +1,28 @@
+<!--
+ * @Author: FunctionSir
+ * @License: AGPLv3
+ * @Date: 2024-10-14 20:56:50
+ * @LastEditTime: 2024-10-18 21:41:40
+ * @LastEditors: FunctionSir
+ * @Description: -
+ * @FilePath: /RobKillSwitch/README.md
+-->
 # RobKillSwitch
-Poweroff immediately if there's someone robbed your laptop when you are using it.
+
+若您非常重视信息安全, 那么, 您大概率会选择使用磁盘加密技术, 来保护自己的信息安全. 但是, 若是有歹人在您操作电脑时直接抢走您的电脑, 那么您辛辛苦苦配置的磁盘加密便很容易起不到作用了(他们甚至不需要使用橡胶软管!).  
+通过使用这个软件, 您可以用一个或几个特定的USB设备, 作为保护装置. 先将设备与自己连接好(比如用一根绳子连接一个U盘和自己的腰带), 然后, 插入这个要保护的设备.  
+若此软件配置无误, 且运行正常, 那么, 若有人抢夺设备, 导致USB设备被拉下来, 则会在一定时间(若使用默认设置, 且十分保守的说, 一般为1s以内)内执行您预设的命令(比如, 您可以在常见的Linux电脑上设置为poweroff -f, 这意味着立即强制关机), 来保护您宝贵的隐私(和)数据.  
+若您不插入特定设备, 那么, **一般情况下**不会造成影响.  
+注意: 建议使用root/管理员用户来运行, 并配置开机自启.  
+注意: 目前还处在测试版阶段!  
+
+## 配置文件说明
+
+``` ini
+# 设备清单保存的地方.
+DevicesList = "example.list"
+# 每两次检查设备情况之间的延时(以毫秒为单位).
+ChkGap = 100
+# 要执行的命令.
+Cmd = poweroff -f
+```
